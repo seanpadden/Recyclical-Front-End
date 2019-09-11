@@ -8,6 +8,7 @@ import AddressForm from './components/AddressForm.js'
 import Geocode from "react-geocode";
 import LoginForm from './components/LoginForm'
 import { Switch, Route, withRouter } from 'react-router-dom'
+import About from './components/About'
 
 export default class App extends Component {
   state = {
@@ -34,10 +35,9 @@ export default class App extends Component {
     }))
   }
 
-  /////// OUR STATE IS BEING SET 
   getCoordinates = (address) => {
     console.log(address)
-    Geocode.setApiKey("KEYYY");
+    Geocode.setApiKey("keyyyyyy");
     Geocode.fromAddress(`${address}`).then(
       response => {
         const { lat, lng } = response.results[0].geometry.location;
@@ -68,7 +68,7 @@ export default class App extends Component {
       })
     })
     .then(resp => resp.json())
-    .then(localStorage.loggedIn === "true")
+    .then(console.log)
   }
 
   render() {
@@ -76,15 +76,14 @@ export default class App extends Component {
     return (
         <Switch>
           {/* {!localStorage.loggedIn ?  */}
-          {/* <Route 
-            exact path='/' 
-            render={(routerProps) => <LoginForm handleSubmit={this.createUser} {...routerProps} />} /> */}
+          <Route 
+            exact path='/login' 
+            render={(routerProps) => <LoginForm handleSubmit={this.createUser} {...routerProps} />} />
           {/* : */}
           <Route 
-          exact path={'/'} 
+          exact path={'/home'} 
           render={(routerProps) => 
             <div>
-                <h1 className="mainHeader">RECYCLICAL</h1>
                 <NavBarContainer/>
                 <AddressForm getCoordinates={this.getCoordinates}/>
                 <MapContainer 
@@ -100,6 +99,9 @@ export default class App extends Component {
               </div>
             }
           />
+          <Route 
+            exact path='/about' 
+            render={(routerProps) => <About/>} />
           {/* } */}
         </Switch>
     );

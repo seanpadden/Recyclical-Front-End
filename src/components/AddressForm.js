@@ -20,22 +20,27 @@ export default class AddresForm extends Component {
 
   render(){
     return(
-      <div className="form" style={{display: 'block', textAlign: 'center'}}>
-        <label> 
-          Enter an NYC address
-          <form>
+      <div style={{textAlign: 'center', justifyContent: 'center'}}>
+        <form style={{textAlign: 'center'}} >
+          <p 
+            style={{fontFamily: 'courier', color: 'white', textAlign: 'center',}} >
+            Got plastic? Enter your current location and let your G**gle™️ Overlord point you to the nearest recycling receptical. Or suffer the consequences... </p>
+           <div className="question" style={{textAlign: 'center'}}>
             <input 
-              type="text"
-              placeholder="Street, City, State"
+              type="text" 
+              required className="form" 
+              style={{textAlign: 'center'}} 
               name="address"
               value={this.state.address}
-              onChange={this.handleChange}
-            />
-          </form>
-          <br />
-        </label>
-        <input className="btn-success" type="submit" name="submit" onClick={this.handleSubmit}/>
+              onChange={this.handleChange}/>
+            <label style={{textAlign: 'center'}}>Street, City, NY</label>
+          </div>
+        </form>
+      <div>
+        <br />
+        <input className="btn" type="submit" name="submit" onClick={this.handleSubmit}/>
       </div>
+    </div>
     )
   }
 }

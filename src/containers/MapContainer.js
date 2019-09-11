@@ -7,10 +7,12 @@ import recycle from '../recycle.png'
 const mapStyles = {
   marginTop: '1%',
   marginLeft: '20%',
-
   width: '60%',
   height: '62%',
   border: 'solid 2px black',
+  color: '#ff67ff',
+
+
 };
 
 export class MapContainer extends Component {
@@ -18,8 +20,6 @@ export class MapContainer extends Component {
     showingInfoWindow: false,
     activeMarker: {}
   }
-
-
 
   markerClick = () => {
     this.setState({
@@ -37,7 +37,7 @@ export class MapContainer extends Component {
       />
     ))
     return (
-      <div >
+      <div>
         <Map 
           google={this.props.google}
           zoom={14}
@@ -45,6 +45,7 @@ export class MapContainer extends Component {
           initialCenter={this.props.currentLocation}
           center={this.props.currentLocation}
           yesIWantToUseGoogleMapApiInternals={true}
+          
         >
           <Marker 
             position={this.props.currentLocation} 
@@ -59,6 +60,6 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'KEYYYY'
+  apiKey: 'KKEYYYYY'
 })(MapContainer);
 

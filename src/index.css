@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif,
-    'Londrina Outline', cursive;
+    'Londrina Outline', cursive, 'Bungee Shade', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('https://media0.giphy.com/media/F4yUgKwRq3r6U/giphy.gif')
@@ -13,24 +13,32 @@ code {
     monospace;
 }
 
-
 .mainHeader {
-  font-family: 'Londrina Outline', cursive;
+  font-family: 'Bungee Shade', cursive;
   text-align: center;
-  font-size: 50px
+  margin: 0;
+  font-size: 50px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 103, 255)
 }
-.navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-flow: row wrap;
 
+.navbar {
+  font-family: 'Bungee Shade', cursive;
+  text-align: center;
+  margin: -1em 0 3em;
+  font-size: 15px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 103, 255)
 }
 
 .nav-links {
   display: flex;
+  font-family: 'helvetica', bold;
+  color: black;
+
+
 }
-.btn-success {
+.btn {
   display: inline-block;
   margin-bottom: 0;
   text-align: center;
@@ -42,6 +50,149 @@ code {
   border-radius: 3px;
   border: 1px solid ;
   user-select: none;
-  font-family: 'Londrina Outline', cursive;
-
+  font-family: 'Bungee Shade', cursive;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 103, 255);
+  
 }
+
+.btn:hover {
+  background-color: rgb(84, 245, 90); 
+  color: rgb(255, 103, 255);
+  background-color: rgb(10, 9, 9);
+  opacity: 0.85;
+}
+
+form {
+  display: inline-block;
+  justify-content: center;
+  font-family: 'Bungee Shade', cursive;
+  text-align: center;
+  /* position: relative; */
+  display: inline-block;
+  max-width: 405px;
+  min-width: 400px;
+  box-sizing: border-box;
+  padding: 30px 25px;
+  background-color: rgb(10, 9, 9);
+  opacity: 0.85;
+  border-radius: 40px;
+}
+
+form .question {
+  position: relative;
+  padding: 10px 0;
+}
+form .question:first-of-type {
+  padding-top: 0;
+}
+form .question:last-of-type {
+  padding-bottom: 0;
+}
+form .question label {
+  /* transform-origin: left center; */
+  color: rgb(255, 103, 255);
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  font-size: 17px;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  display: block;
+  position: absolute;
+  margin-top: -40px;
+  z-index: 2;
+  pointer-events: none;
+}
+form .question input[type="text"] {
+  appearance: none;
+  background-color: black;
+  border: 1px solid rgb(255, 103, 255);
+  line-height: 0;
+  font-size: 17px;
+  width: 75%;
+  display: block;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  border-radius: 60px;
+  color: rgb(255, 103, 255);
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1;
+}
+
+form .question input[type="password"] {
+  appearance: none;
+  background-color: black;
+  border: 1px solid rgb(255, 103, 255);
+  line-height: 0;
+  font-size: 17px;
+  width: 75%;
+  display: block;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  border-radius: 60px;
+  color: rgb(255, 103, 255);
+  font-weight: 100;
+  letter-spacing: 0.01em;
+  position: relative;
+  z-index: 1;
+}
+
+form .question input[type="text"]:focus {
+  outline: none;
+  background: rgb(255, 103, 255);
+  color: black;
+  margin-top: 30px;
+  font-family: 'Bungee Shade', cursive;
+}
+
+form .question input[type="password"]:focus {
+  outline: none;
+  background: rgb(255, 103, 255);
+  color: black;
+  margin-top: 30px;
+  font-family: 'Bungee Shade', cursive;
+}
+
+form .question input[type="text"]:valid {
+  margin-top: 30px;
+}
+
+form .question input[type="password"]:valid {
+  margin-top: 30px;
+}
+
+form .question input[type="text"]:focus ~ label {
+  -moz-transform: translate(0, -35px);
+  -ms-transform: translate(0, -35px);
+  -webkit-transform: translate(0, -35px);
+  transform: translate(0, -35px);
+}
+
+form .question input[type="password"]:focus ~ label {
+  -moz-transform: translate(0, -35px);
+  -ms-transform: translate(0, -35px);
+  -webkit-transform: translate(0, -35px);
+  transform: translate(0, -35px);
+}
+
+form .question input[type="text"]:valid ~ label {
+  text-transform: uppercase;
+  font-style: italic;
+  -moz-transform: translate(5px, -35px) scale(0.6);
+  -ms-transform: translate(5px, -35px) scale(0.6);
+  -webkit-transform: translate(5px, -35px) scale(0.6);
+  transform: translate(5px, -35px) scale(0.6);
+}
+
+form .question input[type="password"]:valid ~ label {
+  text-transform: uppercase;
+  font-style: italic;
+  -moz-transform: translate(5px, -35px) scale(0.6);
+  -ms-transform: translate(5px, -35px) scale(0.6);
+  -webkit-transform: translate(5px, -35px) scale(0.6);
+  transform: translate(5px, -35px) scale(0.6);
+}
+
+
