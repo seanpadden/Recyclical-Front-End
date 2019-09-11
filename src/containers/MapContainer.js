@@ -2,26 +2,40 @@ import React, { Component, Fragment } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import Geocode from "react-geocode";
 import '../index.css'
+import recycle from '../recycle.png'
 
 const mapStyles = {
-  position: 'absolute',
   marginTop: '1%',
   marginLeft: '20%',
 
-  width: '70%',
+  width: '60%',
   height: '62%',
   border: 'solid 2px black',
 };
 
 export class MapContainer extends Component {
+  state = {
+    showingInfoWindow: false,
+    activeMarker: {}
+  }
 
 
+
+  markerClick = () => {
+    this.setState({
+      showingInfoWindow: true,
+      
+    })
+  }
 
   render() {
-    console.log(this.props.currentLocation)
     const binPositions = this.props.bins.map((bin => 
-      <Marker position={{ lat: bin.latitude, lng: bin.longitude}}  />
-      ))
+      <Marker 
+        position={{ lat: bin.latitude, lng: bin.longitude}} 
+        onClick={this.markerClick}
+        icon={recycle}
+      />
+    ))
     return (
       <div >
         <Map 
@@ -30,8 +44,12 @@ export class MapContainer extends Component {
           style={mapStyles}
           initialCenter={this.props.currentLocation}
           center={this.props.currentLocation}
-
-          >
+          yesIWantToUseGoogleMapApiInternals={true}
+        >
+          <Marker 
+            position={this.props.currentLocation} 
+            icon={{url: "http://maps.google.com/mapfiles/ms/icons/purple-dot.png"}}
+          />  
           {binPositions}
         </Map>
         <br/>
@@ -41,6 +59,6 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyDGeMybV3J8LGM97gbIO-Sn1elxpL5F_9A'
+  apiKey: 'KEYYYY'
 })(MapContainer);
 

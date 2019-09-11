@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import Geocode from "react-geocode";
-
+import '../App.css'
 import '../index.css'
 
 export default class AddresForm extends Component {
@@ -20,7 +20,7 @@ export default class AddresForm extends Component {
 
   render(){
     return(
-      <div className="form" style={{display: 'block'}}>
+      <div className="form" style={{display: 'block', textAlign: 'center'}}>
         <label> 
           Enter an NYC address
           <form>
@@ -34,7 +34,7 @@ export default class AddresForm extends Component {
           </form>
           <br />
         </label>
-        <input type="submit" name="submit" onClick={this.handleSubmit}/>
+        <input className="btn-success" type="submit" name="submit" onClick={this.handleSubmit}/>
       </div>
     )
   }
