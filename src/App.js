@@ -36,8 +36,8 @@ export default class App extends Component {
   }
 
   getCoordinates = (address) => {
-    console.log(address)
-    Geocode.setApiKey("keyyyyyy");
+    address.toLowerCase()
+    Geocode.setApiKey("AIzaSyA65xYMOuRKu3sSNk8UKrAAakXQ48vl_mo");
     Geocode.fromAddress(`${address}`).then(
       response => {
         const { lat, lng } = response.results[0].geometry.location;
@@ -55,7 +55,6 @@ export default class App extends Component {
   }
 
   createUser = (user) => {
-    console.log(user)
     fetch("http://localhost:3001/users", {
       method: "POST",
       headers: {
@@ -68,23 +67,34 @@ export default class App extends Component {
       })
     })
     .then(resp => resp.json())
-    .then(console.log)
+    .then(this.setState({
+      loggedIn: true,
+      currentUser: user
+    }))
+  }
+
+  logOut = (e) => {
+    this.setState({
+      loggedIn: false,
+      currentUser: ""
+    })
   }
 
   render() {
-    console.log(this.state.currentLocation)
     return (
-        <Switch>
-          {/* {!localStorage.loggedIn ?  */}
+      <Switch>
           <Route 
             exact path='/login' 
             render={(routerProps) => <LoginForm handleSubmit={this.createUser} {...routerProps} />} />
-          {/* : */}
           <Route 
           exact path={'/home'} 
           render={(routerProps) => 
             <div>
-                <NavBarContainer/>
+                <NavBarContainer 
+                  loggedIn={this.state.loggedIn} 
+                  currentUser={this.state.currentUser}
+                  handleClick={this.logOut}
+                />
                 <AddressForm getCoordinates={this.getCoordinates}/>
                 <MapContainer 
                   bins={this.state.bins}
@@ -99,10 +109,6 @@ export default class App extends Component {
               </div>
             }
           />
-          <Route 
-            exact path='/about' 
-            render={(routerProps) => <About/>} />
-          {/* } */}
         </Switch>
     );
   }
