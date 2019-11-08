@@ -19,15 +19,18 @@ export default class LoginForm extends Component {
   }
 
   handleSubmit = () => {
+    this.props.history.push('/home')
     this.props.handleSubmit(this.state.user)
   }
 
   render(){
-    console.log(this.props)
     return(
       <div style={{textAlign: 'center'}}>
-        <form style={{textAlign: 'center'}} >
-          <p style={{fontFamily: 'courier', color: 'white', textAlign: 'center'}} >Getting dizzy? Log in.</p>
+        <h1 className="mainHeader" >RECYCLEATOR</h1><br/><br/>
+        <form>
+          <p style={{fontFamily: 'courier', color: 'white', textAlign: 'center'}} >Getting dizzy? Log in or sign up.</p>
+           <br />
+           <br />
            <div className="question">
             <input 
               type="text" 
@@ -37,7 +40,7 @@ export default class LoginForm extends Component {
               value={this.state.username}
               onChange={this.handleChange}/>
             <label style={{textAlign: 'center'}}>username</label>
-          </div>
+          </div><br/><br/>
           <div className="question">
             <input 
               type="password" 
@@ -54,24 +57,7 @@ export default class LoginForm extends Component {
         <input className="btn" type="submit" name="submit" onClick={this.handleSubmit}/>
       </div>
     </div>
-    //   <div className="form" style={{display: 'block', textAlign: 'center'}}>
-    //   <br />
-    //     Sign In!
-    //     <form>
-    //       <input 
-    //         type="text" 
-    //         placeholder="username" 
-    //         name="username" 
-    //         value={this.state.username}
-    //         onChange={this.handleChange}
-    //       />
-    //     <br />
-    //       <input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange}/>
-    //     </form>
-    //     <br />
-
-    //   <input className="btn-success" type="submit" name="submit" onClick={this.handleSubmit}/>
-    // </div>
+    
     )
   }
 }

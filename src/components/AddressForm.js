@@ -22,9 +22,9 @@ export default class AddresForm extends Component {
     return(
       <div style={{textAlign: 'center', justifyContent: 'center'}}>
         <form style={{textAlign: 'center'}} >
-          <p 
-            style={{fontFamily: 'courier', color: 'white', textAlign: 'center',}} >
+          <p style={{fontFamily: 'courier', color: 'white', textAlign: 'center'}} >
             Got plastic? Enter your current location and let your G**gle™️ Overlord point you to the nearest recycling receptical. Or suffer the consequences... </p>
+            <br/><br/><br/>
            <div className="question" style={{textAlign: 'center'}}>
             <input 
               type="text" 

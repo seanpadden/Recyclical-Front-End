@@ -64,14 +64,16 @@ code {
 }
 
 form {
-  display: inline-block;
+  display: flex;
   justify-content: center;
+  align-items: center;
   font-family: 'Bungee Shade', cursive;
   text-align: center;
   /* position: relative; */
   display: inline-block;
-  max-width: 405px;
+  max-width: 605px;
   min-width: 400px;
+  height: 300px;
   box-sizing: border-box;
   padding: 30px 25px;
   background-color: rgb(10, 9, 9);
@@ -80,6 +82,11 @@ form {
 }
 
 form .question {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  
   position: relative;
   padding: 10px 0;
 }

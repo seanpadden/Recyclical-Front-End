@@ -1,6 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
-import Geocode from "react-geocode";
+import React, { Component } from 'react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import '../index.css'
 import recycle from '../recycle.png'
 
@@ -10,9 +9,6 @@ const mapStyles = {
   width: '60%',
   height: '62%',
   border: 'solid 2px black',
-  color: '#ff67ff',
-
-
 };
 
 export class MapContainer extends Component {
@@ -44,8 +40,6 @@ export class MapContainer extends Component {
           style={mapStyles}
           initialCenter={this.props.currentLocation}
           center={this.props.currentLocation}
-          yesIWantToUseGoogleMapApiInternals={true}
-          
         >
           <Marker 
             position={this.props.currentLocation} 
@@ -60,6 +54,6 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'KKEYYYYY'
+  apiKey: 'AIzaSyA65xYMOuRKu3sSNk8UKrAAakXQ48vl_mo'
 })(MapContainer);
 
