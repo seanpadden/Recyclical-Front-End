@@ -37,7 +37,7 @@ export default class App extends Component {
 
   getCoordinates = (address) => {
     address.toLowerCase()
-    Geocode.setApiKey(`KEY`);
+    Geocode.setApiKey(`AIzaSyBYUZVixaLa6Nlmi5nFDYXLw8mbAPmPdk0`);
     Geocode.fromAddress(`${address}`).then(
       response => {
         const { lat, lng } = response.results[0].geometry.location;

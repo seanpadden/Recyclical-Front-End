@@ -10,7 +10,7 @@ export default class NavBarContainer extends Component {
     console.log(this.props)
     return(
       <div>
-        <h1 className="mainHeader">RECYCLEATOR</h1>
+        <h1 className="mainHeader">RECYCLICAL</h1>
           <div className="navbar">
           {this.props.loggedIn ? 
           <p><NavLink className="navbar" onClick={this.props.handleClick} to="/login" > Logout </NavLink></p>
