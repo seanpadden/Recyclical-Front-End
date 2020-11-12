@@ -37,7 +37,7 @@ export default class App extends Component {
 
   getCoordinates = (address) => {
     address.toLowerCase()
-    Geocode.setApiKey('KEEEYYYYY');
+    Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_KEY}`);
     Geocode.fromAddress(`${address}`).then(
       response => {
         const { lat, lng } = response.results[0].geometry.location;
@@ -55,7 +55,7 @@ export default class App extends Component {
   }
 
   createUser = (user) => {
-    fetch("http://localhost:3001/users", {
+    fetch("http://localhost:3000/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

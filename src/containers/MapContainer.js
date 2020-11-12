@@ -25,6 +25,7 @@ export class MapContainer extends Component {
   }
 
   render() {
+    console.log(process.env.REACT_APP_GOOGLE_KEY)
     const binPositions = this.props.bins.map((bin => 
       <Marker 
         position={{ lat: bin.latitude, lng: bin.longitude}} 
@@ -54,6 +55,6 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: `KEEYYYYYY`
+  apiKey: `${process.env.REACT_APP_GOOGLE_KEY}`
 })(MapContainer);
 
